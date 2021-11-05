@@ -6,8 +6,14 @@ import { useHistory, useLocation } from "react-router-dom";
 import logging from "../config/logging";
 import { AuthService } from "../services/auth";
 import axios from "axios";
+import { IAuthContextData } from "../interfaces/IAuthContextData";
 
-const AuthContext = createContext({});
+const AuthContext = createContext<IAuthContextData>({
+  signIn: async () => {},
+  signOut: async () => {},
+  currFirebaseUser: undefined,
+  isAuthenticated: () => false,
+});
 
 export function useAuth() {
   return useContext(AuthContext);
@@ -64,7 +70,7 @@ const AuthProvider: React.FunctionComponent<IAuthContextProps> = ({
       setLoading(true);
       const user = await AuthService.signInWithGooglePopup();
       setCurrFirebaseUser(user);
-      logging.info(`User Signed In: ${JSON.stringify(user, null, 2)}`, "Auth");
+      logging.info(`User Signed In`, "Auth");
     } catch (error) {
       logging.error(error, "Auth");
     }
@@ -86,6 +92,7 @@ const AuthProvider: React.FunctionComponent<IAuthContextProps> = ({
         signIn,
         signOut,
         isAuthenticated,
+        currFirebaseUser,
       }}
     >
       {!loading && children}

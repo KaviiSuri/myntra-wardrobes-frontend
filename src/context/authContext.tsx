@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, useState } from "react";
 import { User } from "firebase/auth";
 import { useEffect } from "react";
 import { useContext } from "react";
@@ -14,9 +14,9 @@ export function useAuth() {
 }
 
 interface IAuthContextProps {
-  loginPath: string;
-  children: ReactNode;
-  authenticatedPath: string;
+  loginPath?: string;
+  children: any;
+  authenticatedPath?: string;
 }
 
 const AuthProvider: React.FunctionComponent<IAuthContextProps> = ({
@@ -25,7 +25,7 @@ const AuthProvider: React.FunctionComponent<IAuthContextProps> = ({
   authenticatedPath = "/",
 }) => {
   const [currFirebaseUser, setCurrFirebaseUser] = useState<User | undefined>();
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const history = useHistory();
   const location = useLocation();
 
@@ -33,20 +33,31 @@ const AuthProvider: React.FunctionComponent<IAuthContextProps> = ({
     const unsub = AuthService.onAuthStateChanged((user: User) => {
       setCurrFirebaseUser(user);
       setLoading(false);
-      axios.interceptors.request.use(async (config) => {
-        if (currFirebaseUser)
-          config.headers = {
-            ...config.headers,
-            "firebase-auth-token": await currFirebaseUser.getIdToken(),
-          };
-        return config;
-      });
 
       if (location.pathname === "/") history.push(authenticatedPath);
     });
 
-    return unsub;
-  }, []);
+    return () => {
+      unsub();
+    };
+  }, [authenticatedPath, history, location.pathname]);
+
+  useEffect(() => {
+    logging.info("Setting up auth interceptors", "Auth");
+    let inteceptorId = axios.interceptors.request.use(async (config) => {
+      if (currFirebaseUser)
+        config.headers = {
+          ...config.headers,
+          "firebase-auth-token": await currFirebaseUser.getIdToken(),
+        };
+      return config;
+    });
+
+    return () => {
+      logging.info("Ejecting auth interceptors", "Auth");
+      axios.interceptors.request.eject(inteceptorId);
+    };
+  }, [currFirebaseUser]);
 
   const signIn = async () => {
     try {

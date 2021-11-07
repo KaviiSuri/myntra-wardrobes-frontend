@@ -1,6 +1,5 @@
 import React from "react";
 import ImageUploading, { ImageListType } from "react-images-uploading";
-import NavBar from "../navbar";
 import "./uploadImage.css";
 export default function UploadImage() {
   const [images, setImages] = React.useState([]);
@@ -17,7 +16,6 @@ export default function UploadImage() {
 
   return (
     <>
-      <NavBar />
       <div className="App">
         <ImageUploading
           multiple

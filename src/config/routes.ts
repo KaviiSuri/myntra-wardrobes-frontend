@@ -60,12 +60,6 @@ const routes: IRoute[] = [
     exact: true,
   },
   {
-    path: "/media/upload",
-    name: "UploadMedia Page",
-    component: UploadImage,
-    exact: true,
-  },
-  {
     path: "/outfit",
     name: "Outfit Page",
     component: OutfitPage,

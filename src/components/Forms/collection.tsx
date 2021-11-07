@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import NavBar from "../navbar";
-import Select, { SingleValue } from "react-select";
+import Select from "react-select";
+import UploadImage from "./uploadImage";
 
 const FormContainer = styled.div`
   padding: 0 10vw;
@@ -15,6 +16,8 @@ const FormDescription = styled.textarea``;
 const FormTitle = styled.input``;
 
 const CollectionForm = () => {
+  const [title, setTitle] = useState<any>("");
+  const [description, setDescription] = useState<any>("");
   const [selectedOption, setSelectionOption] = useState<any>("");
   const options = [
     { value: "chocolate", label: "Chocolate" },
@@ -25,8 +28,17 @@ const CollectionForm = () => {
     <>
       <NavBar />
       <FormContainer>
-        <FormTitle placeholder="Title" type="text" />
-        <FormDescription placeholder="Description" />
+        <FormTitle
+          placeholder="Title"
+          type="text"
+          value={title}
+          onChange={(val) => setTitle(val)}
+        />
+        <FormDescription
+          placeholder="Description"
+          value={description}
+          onChange={(val) => setDescription(val)}
+        />
         <Select
           isMulti={true}
           value={selectedOption}
@@ -35,6 +47,7 @@ const CollectionForm = () => {
           }}
           options={options}
         />
+        <UploadImage />
       </FormContainer>
     </>
   );

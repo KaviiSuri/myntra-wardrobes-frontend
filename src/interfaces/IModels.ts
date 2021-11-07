@@ -8,15 +8,14 @@ export interface IWardrobe extends IModel {
   collections: [ICollection];
   firebase_id: string;
 }
-
 export interface IOutfit extends IModel {
   wardrobe: IWardrobe;
   vid_url: string;
-  collection: ICollection;
+  collection?: ICollection;
   products: [IProduct];
   caption: string;
-  clicks: number;
-  buys: number;
+  clicks?: number;
+  buys?: number;
 }
 
 export interface IProduct extends IModel {
@@ -25,10 +24,12 @@ export interface IProduct extends IModel {
 }
 
 export interface ICollection extends IModel {
-  wardrobe: IWardrobe;
+  wardrobes: [IWardrobe];
   name: string;
   bannerImg: string;
   tags: [string];
   description: string;
   outfits: [IOutfit];
+  clicks?: number;
+  buys?: number;
 }

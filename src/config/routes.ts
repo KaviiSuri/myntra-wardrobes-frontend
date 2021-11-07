@@ -1,4 +1,5 @@
 import CreateOutfit from "../components/Forms/createOutfit";
+import CollectionForm from "../components/Forms/collection";
 import UploadImage from "../components/Forms/uploadImage";
 import IRoute from "../interfaces/route";
 import AboutPage from "../pages/about";
@@ -54,9 +55,9 @@ const routes: IRoute[] = [
     exact: true,
   },
   {
-    path: "/media/upload",
-    name: "UploadMedia Page",
-    component: UploadImage,
+    path: "/collection/create",
+    name: "Collection Form Page",
+    component: CollectionForm,
     exact: true,
   },
   {

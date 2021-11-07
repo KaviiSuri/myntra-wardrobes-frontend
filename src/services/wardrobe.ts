@@ -1,7 +1,7 @@
 import axios from "axios";
 import config from "../config/config";
 import logging from "../config/logging";
-import { IWardrobe } from "../interfaces/IModels";
+import { IModel, IWardrobe } from "../interfaces/IModels";
 
 class WardrobeService {
   static async readOrCreateMine(
@@ -18,16 +18,18 @@ class WardrobeService {
       const wardrobe = res.data;
       return wardrobe;
     } catch (error) {
-      logging.error(error, "Wardrobe");
+      logging.error(error, this.namespace);
     }
   }
+
+  private static readonly namespace = "WardrobeService";
 
   static async getAll(): Promise<[IWardrobe] | undefined> {
     try {
       const res = await axios.get(`${config.baseURL.WARDROBE}/`);
       return res.data;
     } catch (error) {
-      logging.error(error, "Wardrobe");
+      logging.error(error, this.namespace);
     }
   }
 
@@ -36,7 +38,21 @@ class WardrobeService {
       const res = await axios.get(`${config.baseURL.WARDROBE}/${id}`);
       return res.data;
     } catch (error) {
-      logging.error(error, "Wardrobe");
+      logging.error(error, this.namespace);
+    }
+  }
+
+  static async updateById(
+    wardrobe: Partial<IWardrobe> & IModel
+  ): Promise<IWardrobe | undefined> {
+    try {
+      const res = await axios.patch(
+        `${config.baseURL.WARDROBE}/${wardrobe._id}`,
+        wardrobe
+      );
+      return res.data;
+    } catch (error) {
+      logging.error(error, this.namespace);
     }
   }
 }

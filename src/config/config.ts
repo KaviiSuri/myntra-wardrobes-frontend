@@ -9,7 +9,7 @@ const config = {
     PRODUCT: `${process.env.REACT_APP_ROOT_URL}/product`,
     COLLECTION: `${process.env.REACT_APP_ROOT_URL}/collection`,
     OUTFIT: `${process.env.REACT_APP_ROOT_URL}/outfit`,
-    CONVERSIOON: `${process.env.REACT_APP_ROOT_URL}/conversion`,
+    CONVERSION: `${process.env.REACT_APP_ROOT_URL}/conversion`,
   },
 };
 

@@ -4,7 +4,7 @@ export interface IModel {
 export interface IWardrobe extends IModel {
   name: string;
   bio: string;
-  outfits: [IOutfit];
+  otherOutfits: [IOutfit];
   collections: [ICollection];
   firebase_id: string;
 }

@@ -7,6 +7,7 @@ import logging from "../config/logging";
 import { AuthService } from "../services/auth";
 import axios from "axios";
 import { IAuthContextData } from "../interfaces/IAuthContextData";
+import config from "../config/config";
 
 const AuthContext = createContext<IAuthContextData>({
   signIn: async () => {},
@@ -38,9 +39,11 @@ const AuthProvider: React.FunctionComponent<IAuthContextProps> = ({
   useEffect(() => {
     const unsub = AuthService.onAuthStateChanged((user: User) => {
       setCurrFirebaseUser(user);
-      setLoading(false);
 
-      if (location.pathname === "/") history.push(authenticatedPath);
+      AuthService.signInWithBackend(user).then(() => {
+        setLoading(false);
+        if (location.pathname === "/") history.push(authenticatedPath);
+      });
     });
 
     return () => {
@@ -50,13 +53,13 @@ const AuthProvider: React.FunctionComponent<IAuthContextProps> = ({
 
   useEffect(() => {
     logging.info("Setting up auth interceptors", "Auth");
-    let inteceptorId = axios.interceptors.request.use(async (config) => {
+    let inteceptorId = axios.interceptors.request.use(async (axiosConfig) => {
       if (currFirebaseUser)
-        config.headers = {
-          ...config.headers,
-          "firebase-auth-token": await currFirebaseUser.getIdToken(),
+        axiosConfig.headers = {
+          ...axiosConfig.headers,
+          [config.authHeaderKey]: await currFirebaseUser.getIdToken(),
         };
-      return config;
+      return axiosConfig;
     });
 
     return () => {

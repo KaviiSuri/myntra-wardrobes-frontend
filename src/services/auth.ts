@@ -1,4 +1,11 @@
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import axios from "axios";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  User,
+} from "firebase/auth";
+import config from "../config/config";
 import logging from "../config/logging";
 import { firebaseApp } from "./firebase";
 
@@ -22,5 +29,26 @@ export class AuthService {
 
   static onAuthStateChanged(cb: any) {
     return this._auth.onAuthStateChanged(cb);
+  }
+
+  static async signInWithBackend(firebaseUser: User) {
+    try {
+      const res = await axios.post(
+        `${config.baseURL.WARDROBE}`,
+        {
+          name: firebaseUser.displayName,
+        },
+        {
+          headers: {
+            [config.authHeaderKey]: await firebaseUser.getIdToken(),
+          },
+        }
+      );
+
+      const wardrobe = res.data;
+      return wardrobe;
+    } catch (error) {
+      logging.error(error, "Auth");
+    }
   }
 }

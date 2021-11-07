@@ -34,7 +34,7 @@ export class AuthService {
   static async signInWithBackend(firebaseUser: User) {
     try {
       const res = await axios.post(
-        `${config.baseURL.WARDROBE}`,
+        `${config.baseURL.WARDROBE}/my`,
         {
           name: firebaseUser.displayName,
         },

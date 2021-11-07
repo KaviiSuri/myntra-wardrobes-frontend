@@ -7,6 +7,7 @@ import {
 } from "firebase/auth";
 import config from "../config/config";
 import logging from "../config/logging";
+import { IWardrobe } from "../interfaces/IModels";
 import { firebaseApp } from "./firebase";
 import WardrobeService from "./wardrobe";
 
@@ -32,7 +33,9 @@ export class AuthService {
     return this._auth.onAuthStateChanged(cb);
   }
 
-  static async signInWithBackend(firebaseUser: User) {
+  static async signInWithBackend(
+    firebaseUser: User
+  ): Promise<IWardrobe | undefined> {
     return await WardrobeService.readOrCreateMine(
       {
         name: firebaseUser.displayName,

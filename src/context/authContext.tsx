@@ -8,6 +8,7 @@ import { AuthService } from "../services/auth";
 import axios from "axios";
 import { IAuthContextData } from "../interfaces/IAuthContextData";
 import config from "../config/config";
+import { IWardrobe } from "../interfaces/IModels";
 
 const AuthContext = createContext<IAuthContextData>({
   signIn: async () => {},
@@ -32,6 +33,7 @@ const AuthProvider: React.FunctionComponent<IAuthContextProps> = ({
   authenticatedPath = "/",
 }) => {
   const [currFirebaseUser, setCurrFirebaseUser] = useState<User | undefined>();
+  const [currWardrobe, setCurrWardrobe] = useState<IWardrobe | undefined>();
   const [loading, setLoading] = useState<boolean>(false);
   const history = useHistory();
   const location = useLocation();
@@ -40,7 +42,8 @@ const AuthProvider: React.FunctionComponent<IAuthContextProps> = ({
     const unsub = AuthService.onAuthStateChanged((user: User) => {
       setCurrFirebaseUser(user);
 
-      AuthService.signInWithBackend(user).then(() => {
+      AuthService.signInWithBackend(user).then((wardrobe) => {
+        setCurrWardrobe(wardrobe);
         setLoading(false);
         if (location.pathname === "/") history.push(authenticatedPath);
       });
@@ -96,6 +99,7 @@ const AuthProvider: React.FunctionComponent<IAuthContextProps> = ({
         signOut,
         isAuthenticated,
         currFirebaseUser,
+        currWardrobe,
       }}
     >
       {!loading && children}

@@ -8,6 +8,7 @@ import {
 import config from "../config/config";
 import logging from "../config/logging";
 import { firebaseApp } from "./firebase";
+import WardrobeService from "./wardrobe";
 
 export class AuthService {
   private static _auth = getAuth(firebaseApp);
@@ -32,23 +33,11 @@ export class AuthService {
   }
 
   static async signInWithBackend(firebaseUser: User) {
-    try {
-      const res = await axios.post(
-        `${config.baseURL.WARDROBE}/my`,
-        {
-          name: firebaseUser.displayName,
-        },
-        {
-          headers: {
-            [config.authHeaderKey]: await firebaseUser.getIdToken(),
-          },
-        }
-      );
-
-      const wardrobe = res.data;
-      return wardrobe;
-    } catch (error) {
-      logging.error(error, "Auth");
-    }
+    return await WardrobeService.readOrCreateMine(
+      {
+        name: firebaseUser.displayName,
+      },
+      await firebaseUser.getIdToken()
+    );
   }
 }

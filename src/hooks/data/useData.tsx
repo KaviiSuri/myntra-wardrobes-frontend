@@ -24,7 +24,7 @@ const useData = <T extends unknown>(
         const res = await caller();
         setData(res);
         setStatusCode(200);
-      } catch (error) {
+      } catch (error: any) {
         console.log(error);
         if (error.isAxiosError) {
           if (error.response) {

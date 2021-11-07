@@ -15,6 +15,7 @@ const AuthContext = createContext<IAuthContextData>({
   signOut: async () => {},
   currFirebaseUser: undefined,
   isAuthenticated: () => false,
+  currWardrobe: undefined,
 });
 
 export function useAuth() {

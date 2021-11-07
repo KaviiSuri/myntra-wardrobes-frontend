@@ -91,7 +91,7 @@ const CardsContainerRecent: React.FunctionComponent<CardInterface> = ({
           </CardThumbnailContainer>
 
           <CardDescription>
-            In publishing and graphic design, Lorem ipsum is a placeholder text.
+            Chelsea Boots vs. Combat Boots | Men's Fall Fashion
           </CardDescription>
         </CardBody>
         <CardBody>
@@ -99,7 +99,7 @@ const CardsContainerRecent: React.FunctionComponent<CardInterface> = ({
             <Link to={"//outfit"}>
               <CardThumbnail
                 src={
-                  "https://i.pinimg.com/originals/7c/a7/37/7ca737c793cfe0ed227f5f468656007c.jpg"
+                  "http://ferbena.com/wp-content/uploads/2017/11/One-Dapper-Street.jpeg"
                 }
               />
               <CardClicks></CardClicks>
@@ -107,7 +107,8 @@ const CardsContainerRecent: React.FunctionComponent<CardInterface> = ({
           </CardThumbnailContainer>
 
           <CardDescription>
-            In publishing and graphic design, Lorem ipsum is a placeholder text.
+            How Stylish Are You? | Reviewing Your Men's Outfits on IG #10 |
+            Style Tips for Men
           </CardDescription>
         </CardBody>
         <CardBody>
@@ -115,7 +116,7 @@ const CardsContainerRecent: React.FunctionComponent<CardInterface> = ({
             <Link to={"/outfit"}>
               <CardThumbnail
                 src={
-                  "https://i.pinimg.com/originals/7c/a7/37/7ca737c793cfe0ed227f5f468656007c.jpg"
+                  "https://i.pinimg.com/originals/b2/09/b5/b209b56489f81ea039147cee7cc76410.jpg"
                 }
               />
               <CardClicks></CardClicks>
@@ -123,7 +124,8 @@ const CardsContainerRecent: React.FunctionComponent<CardInterface> = ({
           </CardThumbnailContainer>
 
           <CardDescription>
-            In publishing and graphic design, Lorem ipsum is a placeholder text.
+            How Stylish Are You? | Reviewing Your IG Outfits #5 | Style Tips for
+            Men
           </CardDescription>
         </CardBody>
       </Cards>

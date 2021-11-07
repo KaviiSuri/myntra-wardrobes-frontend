@@ -46,10 +46,12 @@ const Collections: React.FunctionComponent<IPage> = () => {
       <CollectionContainer>
         <Collection to={"/collection"}>
           <CollectionThumbnail
-            src={"https://i.ytimg.com/vi/ZNZcqHUUIr4/maxresdefault.jpg"}
+            src={"https://i.ytimg.com/vi/23njLdYTA8I/maxresdefault.jpg"}
           />
           <CollectionCaption>
-            <CollectionHeader>Tips to get Ready Quickly</CollectionHeader>
+            <CollectionHeader>
+              12 Summer Closet Essentials | Men’s Fashion | Outfit Inspiration
+            </CollectionHeader>
             <CollectionDescription>
               In publishing and graphic design, Lorem ipsum is a placeholder
               text commonly used to demonstrate the visual form of a document

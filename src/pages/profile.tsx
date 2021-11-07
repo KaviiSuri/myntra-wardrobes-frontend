@@ -78,7 +78,7 @@ const Profile: React.FunctionComponent<IPage> = () => {
         />
         <ProfileAbout>
           <ProfileName>
-            OneStreetDapper{" "}
+            One Street Dapper{" "}
             {ownProfile ? (
               <ProfileEdit to={"/edit"}>Edit</ProfileEdit>
             ) : (
@@ -86,10 +86,19 @@ const Profile: React.FunctionComponent<IPage> = () => {
             )}{" "}
           </ProfileName>
           <ProfileCaption>
-            In publishing and graphic design, Lorem ipsum is a placeholder text
-            commonly used to demonstrate the visual form of a document or.In
-            publishing and graphic design, Lorem ipsum is a placeholder text
-            commonly used to demonstrate the visual form of a document or.
+            he/him/his
+            <br />
+            Public Figure
+            <br />
+            💡 Menswear Inspiration
+            <br />
+            🎥 900k+ on @YouTube
+            <br />
+            👟 @AnkariFloruss Co-Founder
+            <br />
+            ⛓ 😏
+            <br />
+            campsite.bio/marcelfloruss
           </ProfileCaption>
           {/* <ProfileRating></ProfileRating> */}
         </ProfileAbout>

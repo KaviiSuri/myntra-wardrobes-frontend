@@ -1,9 +1,7 @@
 import React from "react";
 import IPage from "../interfaces/page";
 import NavBar from "../components/navbar";
-import Footer from "../components/footer";
 import styled from "styled-components";
-import Outfits from "../components/Outfits";
 import { Link } from "react-router-dom";
 import CommentSection from "../components/CommentSection";
 
@@ -94,11 +92,13 @@ const CollectionPage: React.FunctionComponent<IPage> = () => {
       <NavBar />
       <Banner>
         <BannerImg
-          src={"https://i.ytimg.com/vi/auSXD0wht10/maxresdefault.jpg"}
+          src={"https://i.ytimg.com/vi/23njLdYTA8I/maxresdefault.jpg"}
         />
       </Banner>
       <CollectionCaption>
-        <CollectionHeader>Tips to get Ready Quickly</CollectionHeader>
+        <CollectionHeader>
+          12 Summer Closet Essentials | Men’s Fashion | Outfit Inspiration
+        </CollectionHeader>
         <CollectionDescription>
           In publishing and graphic design, Lorem ipsum is a placeholder text
           commonly used to demonstrate the visual form of a document or.
@@ -110,15 +110,29 @@ const CollectionPage: React.FunctionComponent<IPage> = () => {
             <OutfitThumbnailContainer>
               <OutfitThumbnail
                 src={
-                  "https://steemitimages.com/DQmNQgN9qNv6zXzmbAXYRpMX4vNNdRpCrTf2RxXJPJaYvv1/marcel.jpg"
+                  "https://i.pinimg.com/originals/7c/a7/37/7ca737c793cfe0ed227f5f468656007c.jpg"
                 }
               />
               <CardClicks></CardClicks>
             </OutfitThumbnailContainer>
 
             <OutfitDescription>
-              In publishing and graphic design, Lorem ipsum is a placeholder
-              text.
+              8 Summer Outfits for Men | Men’s Style & Outfit Inspiration for
+              Summer 2020
+            </OutfitDescription>
+          </Outfit>
+          <Outfit to={"/outfit"}>
+            <OutfitThumbnailContainer>
+              <OutfitThumbnail
+                src={
+                  "https://i1.wp.com/onedapperstreet.com/redesign/wp-content/uploads/2019/04/Snapseed.jpg"
+                }
+              />
+              <CardClicks></CardClicks>
+            </OutfitThumbnailContainer>
+
+            <OutfitDescription>
+              Chelsea Boots vs. Combat Boots | Men's Fall Fashion
             </OutfitDescription>
           </Outfit>
           <Outfit to={"/outfit"}>
@@ -132,30 +146,14 @@ const CollectionPage: React.FunctionComponent<IPage> = () => {
             </OutfitThumbnailContainer>
 
             <OutfitDescription>
-              In publishing and graphic design, Lorem ipsum is a placeholder
-              text.
+              Chelsea Boots vs. Combat Boots | Men's Fall Fashion
             </OutfitDescription>
           </Outfit>
           <Outfit to={"/outfit"}>
             <OutfitThumbnailContainer>
               <OutfitThumbnail
                 src={
-                  "https://steemitimages.com/DQmNQgN9qNv6zXzmbAXYRpMX4vNNdRpCrTf2RxXJPJaYvv1/marcel.jpg"
-                }
-              />
-              <CardClicks></CardClicks>
-            </OutfitThumbnailContainer>
-
-            <OutfitDescription>
-              In publishing and graphic design, Lorem ipsum is a placeholder
-              text.
-            </OutfitDescription>
-          </Outfit>
-          <Outfit to={"/outfit"}>
-            <OutfitThumbnailContainer>
-              <OutfitThumbnail
-                src={
-                  "https://steemitimages.com/DQmNQgN9qNv6zXzmbAXYRpMX4vNNdRpCrTf2RxXJPJaYvv1/marcel.jpg"
+                  "https://www.out.com/sites/default/files/streetstyle/street-style-one-dapper-street-coach-andrew-villagomez-1.jpg"
                 }
               />
               <CardClicks></CardClicks>

@@ -83,7 +83,7 @@ const CardsContainerRecomended: React.FunctionComponent<CardInterface> = ({
             <Link to={"/"}>
               <CardThumbnail
                 src={
-                  "https://i.pinimg.com/originals/7c/a7/37/7ca737c793cfe0ed227f5f468656007c.jpg"
+                  "https://i0.wp.com/onedapperstreet.com/wp-content/uploads/2014/01/OOTD_140119_3387Edit-copy.jpg"
                 }
               />
               <CardClicks></CardClicks>
@@ -91,7 +91,8 @@ const CardsContainerRecomended: React.FunctionComponent<CardInterface> = ({
           </CardThumbnailContainer>
 
           <CardDescription>
-            In publishing and graphic design, Lorem ipsum is a placeholder text.
+            One Dapper Street Apartment Tour 2.0 | New York Penthouse | Interior
+            Design Ideas
           </CardDescription>
         </CardBody>
         <CardBody>
@@ -99,7 +100,7 @@ const CardsContainerRecomended: React.FunctionComponent<CardInterface> = ({
             <Link to={"/"}>
               <CardThumbnail
                 src={
-                  "https://i.pinimg.com/originals/7c/a7/37/7ca737c793cfe0ed227f5f468656007c.jpg"
+                  "https://www.timothyoulton.com/pub/media/magefan_blog/timothy-oulton-marcel-floruss-one-dapper-street-chesterfield-brown-leather-sofa-westminster-button_6_.jpg"
                 }
               />
               <CardClicks></CardClicks>
@@ -107,23 +108,23 @@ const CardsContainerRecomended: React.FunctionComponent<CardInterface> = ({
           </CardThumbnailContainer>
 
           <CardDescription>
-            In publishing and graphic design, Lorem ipsum is a placeholder text.
+            How Stylish Are You? | Reviewing Your Men's Outfits on IG | Style
+            Tips for Men
           </CardDescription>
         </CardBody>
         <CardBody>
           <CardThumbnailContainer>
             <Link to={"/"}>
               <CardThumbnail
-                src={
-                  "https://i.pinimg.com/originals/7c/a7/37/7ca737c793cfe0ed227f5f468656007c.jpg"
-                }
+                src={"http://picture-cdn.wheretoget.it/w738ni-i.jpg"}
               />
               <CardClicks></CardClicks>
             </Link>
           </CardThumbnailContainer>
 
           <CardDescription>
-            In publishing and graphic design, Lorem ipsum is a placeholder text.
+            Thrift Store Style-Off Challenge | Second-Hand Shopping at
+            Crossroads Trading with Nathan McCallum
           </CardDescription>
         </CardBody>
       </Cards>

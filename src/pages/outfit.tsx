@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Footer from "../components/footer";
 import VideoPlayer from "../components/ReactPlayer/ReactPlayer";
 import IPage from "../interfaces/page";
 
@@ -120,88 +121,95 @@ const AddButton = styled.button`
 `;
 const OutfitPage: React.FunctionComponent<IPage> = () => {
   const [added, setAdded] = useState(false);
+  const [added2, setAdded2] = useState(false);
+
   return (
-    <OutfitPageContainer>
-      <OutfitReel>
-        <VideoPlayer vid_url={"https://www.youtube.com/watch?v=c02mIpldHmo"} />
-      </OutfitReel>
-      <OutfitProducts>
-        <Profile to={"/profile"}>
-          <ProfileImg
-            src={
-              "https://yt3.ggpht.com/ytc/AKedOLSBUmgZWIx1qgrGwc-kwy8o5IuSzcJJQIZWHCoy=s88-c-k-c0x00ffffff-no-rj"
-            }
+    <>
+      <OutfitPageContainer>
+        <OutfitReel>
+          <VideoPlayer
+            vid_url={"https://www.youtube.com/watch?v=c02mIpldHmo"}
           />
-          <ProfileAbout>
-            <ProfileName>OneStreetDapper</ProfileName>
-            <ProfileFollow>Follow</ProfileFollow>
-          </ProfileAbout>
-        </Profile>
-        <OutfitTitle>
-          Don't Buy Classic Converse | 4 Alternatives for the Fall/ Winter
-        </OutfitTitle>
-        <OutfitCaption>
-          4 alternatives to classic converse, that are better suited for your
-          Fall/ Winter 2021 wardrobe! #mensFashion #mensStyle #oneDapperStreet
-          ————————————————————————————————————— Find me other places:
-          www.instagram.com/marcelfloruss www.onedapperstreet.com
-          —————————————————————————————————————
-        </OutfitCaption>
-        <OutfitProductsContainer>
-          <OutfitSectionHeader>Products Used</OutfitSectionHeader>
-          <Product>
-            <ProductImg
+        </OutfitReel>
+        <OutfitProducts>
+          <Profile to={"/profile"}>
+            <ProfileImg
               src={
-                "https://www.ethnicplus.in/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/n/anushka_sharma_lehenga_1_.jpg"
+                "https://i.pinimg.com/originals/7c/a7/37/7ca737c793cfe0ed227f5f468656007c.jpg"
               }
             />
-            <ProductDescriptions>
-              <Company>Roadster</Company>
-              <Description>
-                Men Black & White Casual Shirt || Solid by : Company | Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Repellat nisi
-                molestias laboriosam velit cum, error esse in! Reiciendis libero
-                nam perspiciatis, hic aliquid cupiditate repellat beatae
-                aspernatur soluta ipsum ad?
-              </Description>
-              <Price>₹ 824 </Price>
-              {added ? (
-                <AddButton onClick={() => setAdded(false)}>REMOVE</AddButton>
-              ) : (
-                <AddButton onClick={() => setAdded(true)}>
-                  ADD TO CART
-                </AddButton>
-              )}
-            </ProductDescriptions>
-          </Product>
-          <Product>
-            <ProductImg
-              src={
-                "https://sugermint.com/wp-content/uploads/2021/05/Mukesh-Bansal-Myntra.jpg"
-              }
-            />
-            <ProductDescriptions>
-              <Company>Roadster</Company>
-              <Description>
-                Men Black & White Casual Shirt || Solid by : Company | Lorem
-                ipsum dolor sit amet consectetur adipisicing elit. Repellat nisi
-                molestias laboriosam velit cum, error esse in! Reiciendis libero
-                nam perspiciatis, hic aliquid cupiditate repellat beatae
-                aspernatur soluta ipsum ad?
-              </Description>
-              <Price>₹ 824 </Price>
-              {added ? (
-                <AddButton onClick={() => setAdded(false)}>REMOVE</AddButton>
-              ) : (
-                <AddButton onClick={() => setAdded(true)}>
-                  ADD TO CART
-                </AddButton>
-              )}
-            </ProductDescriptions>
-          </Product>
-        </OutfitProductsContainer>
-      </OutfitProducts>
-    </OutfitPageContainer>
+            <ProfileAbout>
+              <ProfileName>OneStreetDapper</ProfileName>
+              <ProfileFollow>Follow</ProfileFollow>
+            </ProfileAbout>
+          </Profile>
+          <OutfitTitle>
+            Chelsea Boots vs. Combat Boots | Men's Fall Fashion
+          </OutfitTitle>
+          <OutfitCaption>
+            4 alternatives to classic converse, that are better suited for your
+            Fall/ Winter 2021 wardrobe! #mensFashion #mensStyle #oneDapperStreet
+            ————————————————————————————————————— Find me other places:
+            www.instagram.com/marcelfloruss www.onedapperstreet.com
+            —————————————————————————————————————
+          </OutfitCaption>
+          <OutfitProductsContainer>
+            <OutfitSectionHeader>Products Used</OutfitSectionHeader>
+            <Product>
+              <ProductImg
+                src={
+                  "https://www.ethnicplus.in/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/n/anushka_sharma_lehenga_1_.jpg"
+                }
+              />
+              <ProductDescriptions>
+                <Company>Roadster</Company>
+                <Description>
+                  Men Black & White Casual Shirt || Solid by : Company | Lorem
+                  ipsum dolor sit amet consectetur adipisicing elit. Repellat
+                  nisi molestias laboriosam velit cum, error esse in! Reiciendis
+                  libero nam perspiciatis, hic aliquid cupiditate repellat
+                  beatae aspernatur soluta ipsum ad?
+                </Description>
+                <Price>₹ 824 </Price>
+                {added ? (
+                  <AddButton onClick={() => setAdded(false)}>REMOVE</AddButton>
+                ) : (
+                  <AddButton onClick={() => setAdded(true)}>
+                    ADD TO CART
+                  </AddButton>
+                )}
+              </ProductDescriptions>
+            </Product>
+            <Product>
+              <ProductImg
+                src={
+                  "https://sugermint.com/wp-content/uploads/2021/05/Mukesh-Bansal-Myntra.jpg"
+                }
+              />
+              <ProductDescriptions>
+                <Company>Roadster</Company>
+                <Description>
+                  Men Black & White Casual Shirt || Solid by : Company | Lorem
+                  ipsum dolor sit amet consectetur adipisicing elit. Repellat
+                  nisi molestias laboriosam velit cum, error esse in! Reiciendis
+                  libero nam perspiciatis, hic aliquid cupiditate repellat
+                  beatae aspernatur soluta ipsum ad?
+                </Description>
+                <Price>₹ 824 </Price>
+                {added2 ? (
+                  <AddButton onClick={() => setAdded2(false)}>REMOVE</AddButton>
+                ) : (
+                  <AddButton onClick={() => setAdded2(true)}>
+                    ADD TO CART
+                  </AddButton>
+                )}
+              </ProductDescriptions>
+            </Product>
+          </OutfitProductsContainer>
+        </OutfitProducts>
+      </OutfitPageContainer>
+      <Footer />
+    </>
   );
 };
 

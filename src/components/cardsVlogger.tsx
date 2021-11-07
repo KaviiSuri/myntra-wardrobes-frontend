@@ -82,6 +82,39 @@ const CardsVloggers: React.FunctionComponent<CardInterface> = ({ link }) => {
 
           <CardDescription>One Street Dapper</CardDescription>
         </Card>
+        <Card to={"/profile"}>
+          <CardImgContainer>
+            <CardImg
+              src={
+                "https://www.amexessentials.com/wp-content/uploads/2017/12/opener-style-vloggers.jpg"
+              }
+            ></CardImg>
+          </CardImgContainer>
+
+          <CardDescription>Artist 2</CardDescription>
+        </Card>
+        <Card to={"/profile"}>
+          <CardImgContainer>
+            <CardImg
+              src={
+                "https://www.collegefashion.net/wp-content/uploads/2019/01/img_5795.jpg"
+              }
+            ></CardImg>
+          </CardImgContainer>
+
+          <CardDescription>Artist 3</CardDescription>
+        </Card>
+        <Card to={"/profile"}>
+          <CardImgContainer>
+            <CardImg
+              src={
+                "https://cdn.cliqueinc.com/posts/230021/fashion-youtuber-230021-1500511432439-image.700x0c.jpg"
+              }
+            ></CardImg>
+          </CardImgContainer>
+
+          <CardDescription>Artist 4</CardDescription>
+        </Card>
       </Cards>
     </CardContainer>
   );

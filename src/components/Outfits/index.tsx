@@ -55,18 +55,60 @@ const Outfits: React.FunctionComponent<IPage> = () => {
   return (
     <>
       <OutfitsContainer>
-        <Outfit to={""}>
+        <Outfit to={"/outfit"}>
           <OutfitThumbnailContainer>
             <OutfitThumbnail
               src={
-                "https://steemitimages.com/DQmNQgN9qNv6zXzmbAXYRpMX4vNNdRpCrTf2RxXJPJaYvv1/marcel.jpg"
+                "https://i.pinimg.com/originals/7c/a7/37/7ca737c793cfe0ed227f5f468656007c.jpg"
               }
             />
             <CardClicks></CardClicks>
           </OutfitThumbnailContainer>
 
           <OutfitDescription>
-            In publishing and graphic design, Lorem ipsum is a placeholder text.
+            Chelsea Boots vs. Combat Boots | Men's Fall Fashion
+          </OutfitDescription>
+        </Outfit>
+        <Outfit to={"/outfit"}>
+          <OutfitThumbnailContainer>
+            <OutfitThumbnail
+              src={
+                "https://i1.wp.com/onedapperstreet.com/redesign/wp-content/uploads/2019/04/Snapseed.jpg"
+              }
+            />
+            <CardClicks></CardClicks>
+          </OutfitThumbnailContainer>
+
+          <OutfitDescription>
+            Chelsea Boots vs. Combat Boots | Men's Fall Fashion
+          </OutfitDescription>
+        </Outfit>
+        <Outfit to={"/outfit"}>
+          <OutfitThumbnailContainer>
+            <OutfitThumbnail
+              src={
+                "https://i.pinimg.com/736x/04/d2/ed/04d2ed4d5062f1487951e77ae7a45815--nyc-streets-mens-clothing.jpg"
+              }
+            />
+            <CardClicks></CardClicks>
+          </OutfitThumbnailContainer>
+
+          <OutfitDescription>
+            Chelsea Boots vs. Combat Boots | Men's Fall Fashion
+          </OutfitDescription>
+        </Outfit>
+        <Outfit to={"/outfit"}>
+          <OutfitThumbnailContainer>
+            <OutfitThumbnail
+              src={
+                "https://www.out.com/sites/default/files/streetstyle/street-style-one-dapper-street-coach-andrew-villagomez-1.jpg"
+              }
+            />
+            <CardClicks></CardClicks>
+          </OutfitThumbnailContainer>
+
+          <OutfitDescription>
+            Chelsea Boots vs. Combat Boots | Men's Fall Fashion
           </OutfitDescription>
         </Outfit>
       </OutfitsContainer>

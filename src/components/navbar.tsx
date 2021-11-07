@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import logging from "../config/logging";
 import { useAuth } from "../context/authContext";
@@ -33,6 +33,15 @@ const NavButton = styled.button`
   font-size: large;
   cursor: pointer;
 `;
+const NavProfile = styled(Link)`
+  color: black;
+  border: none;
+  background-color: transparent;
+  font-weight: normal;
+  font-size: large;
+  text-decoration: none;
+  cursor: pointer;
+`;
 const NavLinkContainer = styled.div`
   display: flex;
   justify-content: space-between;
@@ -44,6 +53,7 @@ const NavBar: React.FunctionComponent<IPage> = (props) => {
   useEffect(() => {
     logging.info(`Loading ${props.name}`);
   }, [props.name]);
+  const [sign, setSign] = useState(true);
   const { signIn, signOut } = useAuth();
   return (
     <NavContainer>
@@ -58,13 +68,13 @@ const NavBar: React.FunctionComponent<IPage> = (props) => {
         <Link style={{ textDecoration: "none" }} to="/">
           <NavLink>WARDROBE</NavLink>
         </Link>
-        {props.name === undefined ? (
+        {sign ? (
           <>
-            <NavButton onClick={signIn}>SIGN IN</NavButton>
+            <NavProfile to={"/profile"}>marcelfloruss</NavProfile>
           </>
         ) : (
           <>
-            <NavButton onClick={signOut}>SIGN OUT</NavButton>
+            <NavButton onClick={() => setSign(true)}>SIGN IN</NavButton>
           </>
         )}
       </NavLinkContainer>

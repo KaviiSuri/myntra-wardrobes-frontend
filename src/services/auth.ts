@@ -1,6 +1,14 @@
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import axios from "axios";
+import {
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+  User,
+} from "firebase/auth";
+import config from "../config/config";
 import logging from "../config/logging";
 import { firebaseApp } from "./firebase";
+import WardrobeService from "./wardrobe";
 
 export class AuthService {
   private static _auth = getAuth(firebaseApp);
@@ -22,5 +30,14 @@ export class AuthService {
 
   static onAuthStateChanged(cb: any) {
     return this._auth.onAuthStateChanged(cb);
+  }
+
+  static async signInWithBackend(firebaseUser: User) {
+    return await WardrobeService.readOrCreateMine(
+      {
+        name: firebaseUser.displayName,
+      },
+      await firebaseUser.getIdToken()
+    );
   }
 }

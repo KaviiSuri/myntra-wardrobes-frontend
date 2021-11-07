@@ -57,12 +57,14 @@ const AuthProvider: React.FunctionComponent<IAuthContextProps> = ({
 
   useEffect(() => {
     logging.info("Setting up auth interceptors", "Auth");
-    let inteceptorId = axios.interceptors.request.use(async (axiosConfig) => {
+    let inteceptorId = axios.interceptors.request.use((axiosConfig) => {
       if (currFirebaseUser)
-        axiosConfig.headers = {
-          ...axiosConfig.headers,
-          [config.authHeaderKey]: await currFirebaseUser.getIdToken(),
-        };
+        currFirebaseUser.getIdToken().then((token) => {
+          axiosConfig.headers = {
+            ...axiosConfig.headers,
+            [config.authHeaderKey]: token,
+          };
+        });
       return axiosConfig;
     });
 

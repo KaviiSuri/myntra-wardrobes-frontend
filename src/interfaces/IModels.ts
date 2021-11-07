@@ -4,15 +4,15 @@ export interface IModel {
 export interface IWardrobe extends IModel {
   name: string;
   bio: string;
-  otherOutfits: [IOutfit];
-  collections: [ICollection];
+  otherOutfits: IOutfit[];
+  collections: ICollection[];
   firebase_id: string;
 }
 export interface IOutfit extends IModel {
-  wardrobe: IWardrobe;
+  wardrobe?: IWardrobe;
   vid_url: string;
   collection?: ICollection;
-  products: [IProduct];
+  products: IProduct[];
   caption: string;
   clicks?: number;
   buys?: number;
@@ -20,16 +20,16 @@ export interface IOutfit extends IModel {
 
 export interface IProduct extends IModel {
   name: string;
-  images: [string];
+  images: string[];
 }
 
 export interface ICollection extends IModel {
-  wardrobes: [IWardrobe];
+  wardrobes: IWardrobe[];
   name: string;
   bannerImg: string;
-  tags: [string];
+  tags: string[];
   description: string;
-  outfits: [IOutfit];
+  outfits: IOutfit[];
   clicks?: number;
   buys?: number;
 }

@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useAuth } from "../../context/authContext";
 import Select from "react-select";
-import { ICollection, IWardrobe } from "../../interfaces/IModels";
+import { ICollection, IProduct, IWardrobe } from "../../interfaces/IModels";
 import WardrobeService from "../../services/wardrobe";
+import ProductService from "../../services/product";
+import OutfitService from "../../services/outfit";
+import { useHistory } from "react-router-dom";
 
 const CreateOutfit = () => {
   const [vidUrl, setVidUrl] = useState("");
@@ -13,10 +16,15 @@ const CreateOutfit = () => {
   const [colOptions, setColOptions] = useState<
     { label: string; value: ICollection }[]
   >([]);
-  const { currWardrobe } = useAuth();
+  const history = useHistory();
+
+  const { currWardrobe, currFirebaseUser } = useAuth();
   const getColOptions = async () => {
     const updatedWardrobe: IWardrobe | undefined =
-      await WardrobeService.readOrCreateMine();
+      await WardrobeService.readOrCreateMine(
+        {},
+        await currFirebaseUser?.getIdToken()
+      );
     if (updatedWardrobe) {
       setColOptions(
         updatedWardrobe.collections.map((col) => {
@@ -28,10 +36,33 @@ const CreateOutfit = () => {
       );
     }
   };
+  const [selectedProdOption, setSelectedProdOption] =
+    useState<{ label: string; value: IProduct }[]>();
+
+  const [prodOptions, setProdOptions] = useState<
+    { label: string; value: IProduct }[]
+  >([]);
+
+  const getProdOptions = async () => {
+    const products: [IProduct] | undefined = await ProductService.getAll();
+    if (products)
+      setProdOptions(products.map((p) => ({ label: p.name, value: p })));
+  };
 
   useEffect(() => {
     getColOptions();
   }, [currWardrobe]);
+
+  const handleSubmit = async () => {
+    await OutfitService.create({
+      _id: "",
+      caption,
+      products: selectedProdOption?.map((p) => p.value) || [],
+      vid_url: vidUrl,
+      collection: selectedOption?.value,
+    });
+    history.push("/");
+  };
   return (
     <div
       style={{
@@ -64,6 +95,16 @@ const CreateOutfit = () => {
           setSelectedOption(option);
         }}
       ></Select>
+      <Select
+        placeholder="Products"
+        options={prodOptions}
+        value={selectedProdOption}
+        onChange={(option: any) => {
+          setSelectedProdOption(option);
+        }}
+        isMulti
+      ></Select>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };

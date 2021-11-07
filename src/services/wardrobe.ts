@@ -5,7 +5,7 @@ import { IModel, IWardrobe } from "../interfaces/IModels";
 
 class WardrobeService {
   static async readOrCreateMine(
-    args?: { name: string | null },
+    args?: { name?: string | null },
     idToken?: string
   ): Promise<IWardrobe | undefined> {
     try {

@@ -1,17 +1,21 @@
-import React, { useEffect } from "react";
+import React from "react";
 import IPage from "../interfaces/page";
-import logging from "../config/logging";
-import { useAuth } from "../context/authContext";
+import NavBar from "../components/navbar";
+import HomeTrending from "../components/homeTrending";
+import CardsContainerRecent from "../components/cardsContainerRecent";
+import CardsContainerRecomended from "../components/cardsContainerRecomended";
+import CardsVloggers from "../components/cardsVlogger";
+import Footer from "../components/footer";
 
-const HomePage: React.FunctionComponent<IPage> = (props) => {
-  useEffect(() => {
-    logging.info(`Loading ${props.name}`);
-  }, [props.name]);
-  const { signIn, signOut } = useAuth();
+const HomePage: React.FunctionComponent<IPage> = () => {
   return (
     <div>
-      <button onClick={signIn}>Sign In!</button>
-      <button onClick={signOut}>Sign Out!</button>
+      <NavBar />
+      <HomeTrending />
+      <CardsContainerRecent link={"/recent"} />
+      {/* <CardsContainerRecomended link={"/recomended"} /> */}
+      <CardsVloggers />
+      <Footer />
     </div>
   );
 };

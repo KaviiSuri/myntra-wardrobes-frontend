@@ -1,3 +1,4 @@
 export default interface IPage {
-    name: string;
+  name?: string;
+  quote?: string;
 }

@@ -59,13 +59,13 @@ export default function UploadImage() {
                     <img src={image.dataURL} alt="" className="img_thumb" />
                     <div className="image-item__btn-wrapper">
                       <button
-                        className={"upload__buttons"}
+                        className={"upload__buttons_card"}
                         onClick={() => onImageUpdate(index)}
                       >
                         Update
                       </button>
                       <button
-                        className={"upload__buttons"}
+                        className={"upload__buttons_card"}
                         onClick={() => onImageRemove(index)}
                       >
                         Remove

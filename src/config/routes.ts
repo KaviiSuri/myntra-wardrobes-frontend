@@ -1,3 +1,4 @@
+import UploadImage from "../components/Forms/uploadImage";
 import IRoute from "../interfaces/route";
 import AboutPage from "../pages/about";
 import CollectionPage from "../pages/collection";
@@ -49,6 +50,12 @@ const routes: IRoute[] = [
     path: "/collection",
     name: "Collection Page",
     component: CollectionPage,
+    exact: true,
+  },
+  {
+    path: "/media/upload",
+    name: "UploadMedia Page",
+    component: UploadImage,
     exact: true,
   },
   {

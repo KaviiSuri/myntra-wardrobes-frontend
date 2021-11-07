@@ -3,7 +3,6 @@ import IPage from "../interfaces/page";
 import NavBar from "../components/navbar";
 import HomeTrending from "../components/homeTrending";
 import CardsContainerRecent from "../components/cardsContainerRecent";
-import CardsContainerRecomended from "../components/cardsContainerRecomended";
 import CardsVloggers from "../components/cardsVlogger";
 import Footer from "../components/footer";
 
@@ -12,9 +11,9 @@ const HomePage: React.FunctionComponent<IPage> = () => {
     <div>
       <NavBar />
       <HomeTrending />
-      <CardsContainerRecent link={"/recent"} />
+      <CardsContainerRecent link={"/recent/viewall"} />
       {/* <CardsContainerRecomended link={"/recomended"} /> */}
-      <CardsVloggers />
+      <CardsVloggers link={"/vloggers/viewall"} />
       <Footer />
     </div>
   );

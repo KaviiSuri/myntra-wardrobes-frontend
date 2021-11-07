@@ -1,11 +1,9 @@
-import axios from "axios";
 import {
   getAuth,
   GoogleAuthProvider,
   signInWithPopup,
   User,
 } from "firebase/auth";
-import config from "../config/config";
 import logging from "../config/logging";
 import { IWardrobe } from "../interfaces/IModels";
 import { firebaseApp } from "./firebase";

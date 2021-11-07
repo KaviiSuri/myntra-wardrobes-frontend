@@ -5,13 +5,13 @@ import { IModel, IWardrobe } from "../interfaces/IModels";
 
 class WardrobeService {
   static async readOrCreateMine(
-    args: { name: string | null },
-    idToken: string
+    args?: { name: string | null },
+    idToken?: string
   ): Promise<IWardrobe | undefined> {
     try {
       const res = await axios.post(`${config.baseURL.WARDROBE}/my`, args, {
         headers: {
-          [config.authHeaderKey]: idToken,
+          [config.authHeaderKey]: idToken as string,
         },
       });
 

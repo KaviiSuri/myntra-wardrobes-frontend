@@ -1,3 +1,4 @@
+import CreateOutfit from "../components/Forms/createOutfit";
 import UploadImage from "../components/Forms/uploadImage";
 import IRoute from "../interfaces/route";
 import AboutPage from "../pages/about";
@@ -62,6 +63,12 @@ const routes: IRoute[] = [
     path: "/outfit",
     name: "Outfit Page",
     component: OutfitPage,
+    exact: true,
+  },
+  {
+    path: "/outfit/create",
+    name: "Create New Outfit",
+    component: CreateOutfit,
     exact: true,
   },
   {
